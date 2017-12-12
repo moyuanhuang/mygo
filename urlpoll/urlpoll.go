@@ -98,6 +98,7 @@ func main(){
   // } ()
 
   // why seperate goroutine for each elem in complete??
+  // see /factories
   for r := range complete {
     go r.Sleep(pending)
   }
