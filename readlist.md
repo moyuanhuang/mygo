@@ -6,3 +6,5 @@
 4. `net/http` usage
 5. when to pass pointer(\*) and when to pass the object?
 6. when to use `var`?
+7. go's reflection mechanism
+8. [switch usage](https://github.com/golang/go/wiki/Switch)
