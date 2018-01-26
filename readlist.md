@@ -8,3 +8,4 @@
 6. when to use `var`?
 7. go's reflection mechanism
 8. [switch usage](https://github.com/golang/go/wiki/Switch)
+9. Easy way to build up CLI: https://gobyexample.com/command-line-flags
