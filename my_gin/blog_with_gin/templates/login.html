@@ -1,0 +1,30 @@
+{{ template "header.html" .}}
+  <div class="panel panel-default col-sm-6 mt-2">
+    <h1>Login</h1>
+    <div class="panel-body">
+      {{ if .Error }}
+        <p class="alert bg-danger">
+          {{.Error.Title}}: {{.Error.Message}}
+        </p>
+      {{ end }}
+
+      <form class="login-form" action="/user/login" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+        </div>
+
+        <div class="form-group">
+          <label for="passwords">Password</label>
+          <input type="text" class="form-control" name="password" id="password" placeholder="Password">
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+{{ template "footer.html" .}}
