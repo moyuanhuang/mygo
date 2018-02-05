@@ -1,10 +1,19 @@
 package main
 
 func initializeRoutes() {
-    router.GET("/", homePageGET)
-    router.GET("/article/view/:id", displayArticle)
+    router.Use(setLoginStatus)
 
-    router.GET("/user/login", displayLogin)
-    router.POST("/user/login", handleLogin)
-    router.GET("/user/logout", handleLogout)
+    router.GET("/", homePageGET)
+
+    userRouter := router.Group("/user")
+    {
+        userRouter.GET("/login", ensureNotLoggedIn, displayLogin)
+        userRouter.POST("/login",  handleLogin)
+        userRouter.GET("/logout", ensureLoggedIn, handleLogout)
+    }
+
+    articleRouter := router.Group("/article/")
+    {
+        articleRouter.GET("/view/:id", displayArticle)
+    }
 }
